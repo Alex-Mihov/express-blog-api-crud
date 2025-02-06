@@ -4,7 +4,8 @@ const data = require("../data/posts")
 // funzione index
 function index(req, res) {
 
-    res.send("Lista dei desserts")
+    // res.send("Lista dei desserts")
+    res.json(data)
 
     // //restituiamo il menu filtrato che inizialmente corrisponde all'originale
     // let dessertMenu = data;
@@ -21,14 +22,37 @@ function index(req, res) {
 // show
 function show(req, res) {
 
-    res.send("Dettagli dei desserts" + req.params.id)
+    // res.send("Dettagli dei desserts" + req.params.id)
+
+    // recupero l'id e lo trasformo in un numero intero
+    const id = parseInt(req.params.id)
+
+    // cerco dessert tramite id
+    const dessert = data.find(dessert => dessert.id === id);
+
+    // restituiamo sotto forma json
+    res.json(dessert)
 
 }
 
 // delete
 function destroy(req, res) {
 
-    res.send("Eliminazione del dessert" + req.params.id)
+    // res.send("Eliminazione del dessert" + req.params.id)
+
+    // recupero l'id e lo trasformo in un numero intero
+    const id = parseInt(req.params.id)
+
+    // cerco dessert tramite id
+    const dessert = data.find(dessert => dessert.id === id);
+
+    // cancello il dessert trovato
+    data.splice(data.indexOf(dessert), 1);
+
+    // verifichiamo che il dessert sia stato cancellato
+    console.log(data);
+    
+    res.status(204);
 
 }
 
