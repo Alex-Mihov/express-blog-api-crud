@@ -5,6 +5,9 @@ const port = 3000
 // importo router dei dessert
 const dessertsRouter = require("./routers/posts")
 
+// definiamo l'uso di una cartella per i file statici
+app.use(express.static('public'));
+
 
 // proggetto base con rotta "/"
 // app.get("/", (req, res) => {

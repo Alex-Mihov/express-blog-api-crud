@@ -2,18 +2,15 @@
 const express = require('express')
 const router = express.Router();
 
+// importiamo il file dessertController
+const dessertController = require("../controllers/dessertController")
+
 // rotte CRUD
 // index
-router.get("/", function(req, res){
-    // res.send("Lista dei desserts")
-    res.json(data)
-});
+router.get("/", dessertController.index);
 
 // show
-router.get("/:id", function(req, res){
-    // res.send("Dettagli dei desserts" + req.params.id)
-    res.json(data[req.params.id])
-});
+router.get("/:id", dessertController.show);
 
 // create 
 router.post("/", function(req, res){
@@ -26,9 +23,7 @@ router.put("/:id", function(req, res){
 });
 
 // delete
-router.delete("/:id", function(req, res){
-    res.send("Eliminazione del dessert" + req.params.id)
-});
+router.delete("/:id", dessertController.destroy);
 
 // importo modulo router
 module.exports = router;
