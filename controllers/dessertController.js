@@ -30,6 +30,18 @@ function show(req, res) {
     // cerco dessert tramite id
     const dessert = data.find(dessert => dessert.id === id);
 
+    // controlliamo se il dessert esiste 
+    if (!dessert) {
+
+        // ritorno lo status 404 perchè il dessert non esiste
+        res.status(404);
+
+        return res.json({
+            error: "not found",
+            message: "dessert non trovato"
+        })
+    }
+
     // restituiamo sotto forma json
     res.json(dessert)
 
@@ -51,6 +63,18 @@ function destroy(req, res) {
 
     // verifichiamo che il dessert sia stato cancellato
     console.log(data);
+
+    // controlliamo se il dessert esiste 
+    if (!dessert) {
+
+        // ritorno lo status 404 perchè il dessert non esiste
+        res.status(404);
+
+        return res.json({
+            error: "not found",
+            message: "dessert non trovato"
+        })
+    }
     
     res.status(204);
 
