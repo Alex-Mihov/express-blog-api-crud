@@ -5,18 +5,18 @@ const data = require("../data/posts")
 function index(req, res) {
 
     // res.send("Lista dei desserts")
-    res.json(data)
+    
 
-    // //restituiamo il menu filtrato che inizialmente corrisponde all'originale
-    // let dessertMenu = data;
+    //restituiamo il menu filtrato che inizialmente corrisponde all'originale
+    let dessertMenu = data;
 
-    // // nel caso la richiesta contenesse un filtro allora filtriamo il menu
-    // if(req.query.ingredient) {
-    //     dessertMenu = menubar.filter( pizza => pizza.ingredients.includes(req.query.ingredient));
-    // }
+    // nel caso la richiesta contenesse un filtro allora filtriamo il menu
+    if(req.query.tags) {
+        dessertMenu = data.filter( dessert => dessert.tags.includes(req.query.tags));
+    }
 
-    // // restituiamo la variabile dessertMenu(potrebbe essere filtrato)
-    // res.json(dessertMenu)
+    // // restituiamo in forma json
+    res.json(dessertMenu)
 }
 
 // show
