@@ -1,0 +1,25 @@
+{
+  "name": "express-blog-intro",
+  "version": "1.0.0",
+  "description": "blog personale",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "watch": "node --watch app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+    
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Alex-Mihov/express-blog-intro.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Alex-Mihov/express-blog-intro/issues"
+  },
+  "homepage": "https://github.com/Alex-Mihov/express-blog-intro#readme",
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}
