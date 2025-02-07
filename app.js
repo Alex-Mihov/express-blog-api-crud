@@ -8,6 +8,9 @@ const dessertsRouter = require("./routers/posts")
 // definiamo l'uso di una cartella per i file statici
 app.use(express.static('public'));
 
+// registro il body-parser per json
+app.use(express.json());
+
 
 // proggetto base con rotta "/"
 // app.get("/", (req, res) => {

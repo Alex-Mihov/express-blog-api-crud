@@ -12,15 +12,14 @@ router.get("/", dessertController.index);
 // show
 router.get("/:id", dessertController.show);
 
-// create 
-router.post("/", function(req, res){
-    res.send("Creazione nuovo dessert")
-});
+// store
+router.post("/", dessertController.store);
 
 // update
 router.put("/:id", function(req, res){
     res.send("Modifica integrale del dessert" + req.params.id)
 });
+
 
 // delete
 router.delete("/:id", dessertController.destroy);

@@ -47,6 +47,35 @@ function show(req, res) {
 
 }
 
+// store
+function store(req, res) {
+
+    // console.log(req.body);
+    // res.send("Creazione nuovo dessert");
+
+    // creazione nuovo id 
+    const nuovoId = data[data.length - 1].id +1;
+
+    // crazione nuovo oggetto
+    const nuovoDessert= {
+        id: nuovoId,
+        title: req.body.title,
+        content: req.body.content,
+        tags: req.body.tags
+    }
+
+    // aggiungo il dessert
+    data.push(nuovoDessert);
+
+    // console.log(data);
+    
+    // restituisco nuovo status e nuovo dessert
+    res.status(201);
+    res.json(nuovoDessert);
+
+}
+
+
 // delete
 function destroy(req, res) {
 
@@ -81,4 +110,4 @@ function destroy(req, res) {
 }
 
 
-module.exports = {index, show, destroy};
+module.exports = {index, show, destroy, store};
