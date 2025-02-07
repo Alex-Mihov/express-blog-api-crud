@@ -77,13 +77,41 @@ function store(req, res) {
 
 // update 
 function update(req, res) {
+    // res.send('Modifica integrale del dessert ' + req.params.id);
+    // recuperiamo l'id 
+    const id = parseInt(req.params.id) 
+    
+    // cerchiamo il dessert tramite id 
+    const  dessert = data.find( dessert => dessert.id === id);
+    
+    // contollo se il dessert esiste 
+    if (!dessert) {
 
-    res.send('Modifica integrale del dessert ' + req.params.id);
+        // restituisco lo status 404
+        res.status(404);
+
+        // ritorno lo status 404 perchè il dessert non esiste
+        res.status(404);
+
+        return res.json({
+            error: "not found",
+            message: "dessert non trovato"
+        })
+
+    }
+
+    // modifichiamo i dati del dessert trovato
+    dessert.title = req.body.title;
+    dessert.content = req.body.content;
+    dessert.tags = req.body.tags;
+
+    // console.log(data);
+
+    res.json(dessert)
+}
 
     
 
-
-}
 
 // delete
 function destroy(req, res) {
