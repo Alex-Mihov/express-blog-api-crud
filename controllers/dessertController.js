@@ -75,6 +75,15 @@ function store(req, res) {
 
 }
 
+// update 
+function update(req, res) {
+
+    res.send('Modifica integrale del dessert ' + req.params.id);
+
+    
+
+
+}
 
 // delete
 function destroy(req, res) {
@@ -110,4 +119,4 @@ function destroy(req, res) {
 }
 
 
-module.exports = {index, show, destroy, store};
+module.exports = {index, show, destroy, store, update};

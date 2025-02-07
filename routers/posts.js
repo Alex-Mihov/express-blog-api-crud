@@ -16,9 +16,7 @@ router.get("/:id", dessertController.show);
 router.post("/", dessertController.store);
 
 // update
-router.put("/:id", function(req, res){
-    res.send("Modifica integrale del dessert" + req.params.id)
-});
+router.put("/:id", dessertController.update);
 
 
 // delete
