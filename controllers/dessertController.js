@@ -11,8 +11,8 @@ function index(req, res) {
     let dessertMenu = data;
 
     // nel caso la richiesta contenesse un filtro allora filtriamo il menu
-    if(req.query.tags) {
-        dessertMenu = data.filter( dessert => dessert.tags.includes(req.query.tags));
+    if(req.query.tag) {
+        dessertMenu = data.filter( dessert => dessert.tags.includes(req.query.tag));
     }
 
     // // restituiamo in forma json
